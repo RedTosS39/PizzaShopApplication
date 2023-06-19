@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menu_item"
-        android:title="Меню"/>
+    <item
+        android:id="@+id/menu_item"
+        android:icon="@drawable/menu_item"
+        android:title="@string/menu_menu" />
     <item
         android:id="@+id/profile_item"
-        android:title="профиль"/>
+        android:icon="@drawable/profile_icon"
+        android:title="@string/profile_menu" />
     <item
-        android:id="bag"
-        android:title="Корзина"/>
+        android:id="@+id/bag_item_menu"
+        android:icon="@drawable/bag_icon"
+        android:title="@string/bag_menu" />
 
 </menu>

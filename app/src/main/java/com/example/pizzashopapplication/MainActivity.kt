@@ -8,8 +8,9 @@ import com.example.pizzashopapplication.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val binding =  ActivityMainBinding.inflate(LayoutInflater.from(this))
-
+    private val binding by lazy {
+        ActivityMainBinding.inflate(LayoutInflater.from(this))
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

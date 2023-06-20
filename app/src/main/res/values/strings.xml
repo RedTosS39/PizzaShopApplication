@@ -30,4 +30,5 @@ Note: If you can't change your theme, you can continue to inherit from an AppCom
 
 Material3 themes
 Here are the Material3 themes you can use to get the latest component styles and theme-level attributes, as well as their MaterialComponents equivalents when applicable."</string>
+    <string name="city_label">Москва</string>
 </resources>

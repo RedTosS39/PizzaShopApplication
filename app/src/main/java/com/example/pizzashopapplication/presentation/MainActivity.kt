@@ -1,10 +1,11 @@
-package com.example.pizzashopapplication
+package com.example.pizzashopapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import com.example.pizzashopapplication.R
 import com.example.pizzashopapplication.databinding.ActivityMainBinding
-import com.example.pizzashopapplication.ui.main.MainFragment
+import com.example.pizzashopapplication.presentation.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

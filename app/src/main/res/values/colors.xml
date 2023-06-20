@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="selected_item">#FD3A69</color>
+    <color name="selected_item">#33FD3A69</color>
+    <color name="selected_item_text">#FD3A69</color>
     <color name="background_menu">#F0F0F0</color>
     <color name="list_background">#FBFBFB</color>
     <color name="description_color">#AAAAAD</color>

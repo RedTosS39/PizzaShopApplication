@@ -1,4 +1,4 @@
-package com.example.pizzashopapplication.ui.main
+package com.example.pizzashopapplication.presentation.ui.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import androidx.recyclerview.widget.RecyclerView.Orientation
-import com.example.pizzashopapplication.R
+import com.example.pizzashopapplication.data.ApiService
+import com.example.pizzashopapplication.data.DishMapper
+import com.example.pizzashopapplication.data.RepositoryImpl
 import com.example.pizzashopapplication.databinding.FragmentMainBinding
-import com.example.pizzashopapplication.ui.adapter.BannerAdapter
-import com.example.pizzashopapplication.ui.adapter.MenuAdapter
+import com.example.pizzashopapplication.domain.GetDishesUseCase
+import com.example.pizzashopapplication.domain.Repository
+import com.example.pizzashopapplication.presentation.ui.adapter.BannerAdapter
+import com.example.pizzashopapplication.presentation.ui.adapter.MenuAdapter
 
 class MainFragment : Fragment() {
 
@@ -22,8 +23,18 @@ class MainFragment : Fragment() {
     private lateinit var menuAdapter: MenuAdapter
     private lateinit var bannerAdapter: BannerAdapter
 
+    val useCase = GetDishesUseCase()
+    val repository: Repository = RepositoryImpl()
+
+    private val viewModelFactory by lazy {
+        MainViewModelFactory(useCase, repository)
+    }
+
     private val viewModel by lazy {
-        ViewModelProvider(this@MainFragment)[MainViewModel::class.java]
+        ViewModelProvider(
+            this@MainFragment,
+            viewModelFactory
+        )[MainViewModel::class.java]
     }
 
 
@@ -40,24 +51,22 @@ class MainFragment : Fragment() {
         setupRecycler()
     }
 
-
     private fun setupRecycler() {
         menuAdapter = MenuAdapter()
         binding.recyclerMenu.adapter = menuAdapter
         bannerAdapter = BannerAdapter()
         binding.bannerRecycler.adapter = bannerAdapter
 
-        val list = mutableListOf<String>()
+        viewModel.dishesList.observe(viewLifecycleOwner) {
+            menuAdapter.submitList(it)
+        }
+
+
         val bannerList = mutableListOf<Int>()
         for (i in 0..10) {
             bannerList.add(i)
         }
 
-        for (i in 0..10) {
-            list.add("i")
-        }
-
-        menuAdapter.submitList(list)
         binding.recyclerMenu.layoutManager = LinearLayoutManager(requireActivity())
 
         bannerAdapter.submitList(bannerList)

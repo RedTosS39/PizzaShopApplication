@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import androidx.recyclerview.widget.RecyclerView.Orientation
 import com.example.pizzashopapplication.R
 import com.example.pizzashopapplication.databinding.FragmentMainBinding
+import com.example.pizzashopapplication.ui.adapter.BannerAdapter
 import com.example.pizzashopapplication.ui.adapter.MenuAdapter
 
 class MainFragment : Fragment() {
@@ -18,6 +20,7 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding ?: throw RuntimeException("FragmentMainBinding == null")
     private lateinit var menuAdapter: MenuAdapter
+    private lateinit var bannerAdapter: BannerAdapter
 
     private val viewModel by lazy {
         ViewModelProvider(this@MainFragment)[MainViewModel::class.java]
@@ -41,14 +44,25 @@ class MainFragment : Fragment() {
     private fun setupRecycler() {
         menuAdapter = MenuAdapter()
         binding.recyclerMenu.adapter = menuAdapter
+        bannerAdapter = BannerAdapter()
+        binding.bannerRecycler.adapter = bannerAdapter
 
         val list = mutableListOf<String>()
+        val bannerList = mutableListOf<Int>()
         for (i in 0..10) {
-            list.add("AAAA $i")
+            bannerList.add(i)
+        }
+
+        for (i in 0..10) {
+            list.add("i")
         }
 
         menuAdapter.submitList(list)
         binding.recyclerMenu.layoutManager = LinearLayoutManager(requireActivity())
+
+        bannerAdapter.submitList(bannerList)
+        binding.bannerRecycler.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
     }
 
     companion object {

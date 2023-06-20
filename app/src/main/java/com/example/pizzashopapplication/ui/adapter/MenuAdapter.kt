@@ -3,9 +3,8 @@ package com.example.pizzashopapplication.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.pizzashopapplication.databinding.ActivityMainBinding
+import com.example.pizzashopapplication.R
 import com.example.pizzashopapplication.databinding.CardMenuBinding
-import com.example.pizzashopapplication.databinding.FragmentMainBinding
 
 class MenuAdapter : ListAdapter<String, MenuViewHolder>(MenuDiffCallback) {
 
@@ -17,5 +16,6 @@ class MenuAdapter : ListAdapter<String, MenuViewHolder>(MenuDiffCallback) {
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val item = getItem(position)
             holder.binding.tvCardPrice.text = "AAAA"
+        holder.binding.imageView.setImageResource(R.drawable.bag_icon)
     }
 }

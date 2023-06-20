@@ -3,4 +3,31 @@
     <string name="bag_menu">Корзина</string>
     <string name="profile_menu">профиль</string>
     <string name="menu_menu">Меню</string>
+    <string name="big_text">"In order to use the latest versions of Material Components for Android and the AndroidX Jetpack libraries, you will have to install the latest version of Android Studio and update your app's compileSdkVersion to 32.
+
+As part of migrating to Android 12, you'll need to add android:exported to any activities, services, or broadcast receivers in your manifest that use intent filters (see the documentation). Consider reading through the Android 12 app migration guide and behavior changes for more tips and information.
+
+4. Java 8 compilation
+The latest Material and AndroidX Jetpack libraries now require your app to be compiled with Java 8. See the Java 8 language features and APIs documentation for more information on Java 8 support and how to enable it for your app.
+
+5. Gradle, AGP, and Android Studio
+When using MDC-Android version 1.7.0-alpha02 and above, you will need to make sure your project is built with the following minimum requirements, in order to support the latest build features such as XML macro:
+
+Gradle version 7.3.3
+Android Gradle Plugin (AGP) version 7.2.0
+Android Studio Chipmunk, version 2021.2.1
+6. AppCompatActivity
+Use AppCompatActivity to ensure that all the components work correctly. If you are unable to extend from AppCompatActivity, update your activities to use AppCompatDelegate. This will enable the AppCompat or Material versions of components to be inflated (depending on your theme), among other important things.
+
+7. Material3 theme inheritance
+We recommend you perform an app-wide migration by changing your app theme to inherit from a Material3 theme. Be sure to test thoroughly afterwards, since this may change the appearance and behavior of existing layout components.
+
+Check out the new Material Theme Builder which can be used to generate your Material3 app theme, with all of the Material Color System roles filled out based on your brand colors.
+
+Web
+Figma
+Note: If you can't change your theme, you can continue to inherit from an AppCompat or MaterialComponents theme and add some new theme attributes to your theme. See the AppCompat or MaterialComponents themes section for more details.
+
+Material3 themes
+Here are the Material3 themes you can use to get the latest component styles and theme-level attributes, as well as their MaterialComponents equivalents when applicable."</string>
 </resources>

@@ -1,11 +1,10 @@
-package com.example.pizzashopapplication.ui.adapter
+package com.example.pizzashopapplication.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.pizzashopapplication.R
 import com.example.pizzashopapplication.databinding.CardChipBinding
-import com.example.pizzashopapplication.databinding.CardMenuBinding
 
 class BannerAdapter : ListAdapter<Int, BannerViewHolder>(BannerDiffCallback) {
 

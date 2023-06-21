@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chip">
+        <item name="android:width">88dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/text_chip_color</item>
+        <item name="chipBackgroundColor">@color/bg_chip_color</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="chipCornerRadius">6dp</item>
+        <item name="chipStrokeColor">@color/selected_item</item>
+        <item name="chipStrokeWidth">0.5dp</item>
+    </style>
+</resources>

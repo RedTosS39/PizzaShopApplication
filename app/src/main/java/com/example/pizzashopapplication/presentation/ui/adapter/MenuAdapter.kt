@@ -10,7 +10,7 @@ import com.example.pizzashopapplication.databinding.CardMenuBinding
 import com.example.pizzashopapplication.domain.DomainDish
 import com.squareup.picasso.Picasso
 
-class MenuAdapter : ListAdapter<Dishe, MenuViewHolder>(MenuDiffCallback) {
+class MenuAdapter : ListAdapter<DomainDish, MenuViewHolder>(MenuDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = CardMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)

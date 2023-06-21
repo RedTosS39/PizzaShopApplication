@@ -2,18 +2,13 @@ package com.example.pizzashopapplication.presentation.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.pizzashopapplication.domain.GetDishesUseCase
-import com.example.pizzashopapplication.domain.Repository
+import javax.inject.Inject
+import javax.inject.Provider
 
-class MainViewModelFactory(
-    private val useCase: GetDishesUseCase,
-    private val repository: Repository
+class MainViewModelFactory @Inject constructor(
+    private val viewModelProviders: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return MainViewModel(useCase, repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
+        return viewModelProviders[modelClass]?.get() as T
     }
 }

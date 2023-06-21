@@ -2,9 +2,10 @@ package com.example.pizzashopapplication.domain
 
 import androidx.lifecycle.LiveData
 import com.example.pizzashopapplication.data.model.Dishe
+import javax.inject.Inject
 
-class GetDishesUseCase {
-    suspend operator fun invoke(repository: Repository) : LiveData<List<Dishe>>{
+class GetDishesUseCase @Inject constructor(private val repository: Repository) {
+    suspend fun getDishesList(): LiveData<List<DomainDish>> {
         return repository.getDishesList()
     }
 }

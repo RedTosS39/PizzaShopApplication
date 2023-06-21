@@ -4,12 +4,12 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.pizzashopapplication.data.model.Dishe
 import com.example.pizzashopapplication.domain.DomainDish
 
-object MenuDiffCallback : DiffUtil.ItemCallback<Dishe>() {
-    override fun areItemsTheSame(oldItem: Dishe, newItem: Dishe): Boolean {
+object MenuDiffCallback : DiffUtil.ItemCallback<DomainDish>() {
+    override fun areItemsTheSame(oldItem: DomainDish, newItem: DomainDish): Boolean {
        return oldItem.name  == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: Dishe, newItem: Dishe): Boolean {
+    override fun areContentsTheSame(oldItem: DomainDish, newItem: DomainDish): Boolean {
         return oldItem == newItem
     }
 }

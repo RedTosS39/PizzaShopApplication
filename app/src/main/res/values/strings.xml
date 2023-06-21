@@ -33,4 +33,5 @@ Here are the Material3 themes you can use to get the latest component styles and
     <string name="city_label">Москва</string>
     <string name="card_content">card content</string>
     <string name="card_price">от 345 р</string>
+    <string name="chip_label">Пицца</string>
 </resources>
